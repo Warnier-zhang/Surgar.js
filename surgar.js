@@ -1,15 +1,13 @@
 /**
  * Copyright © 2017.4, Warnier-zhang <warnier.zhang@gmail.com>, All Rights Reserved.
  *
- * 文件名称：Surgar.js
- *
- * 文件描述：工具方法类。
+ * @author Warnier-zhang
  */
 
 var $ = Surgar = {};
 
 /**
- * 若数字小于10，则填充零前缀。
+ * Fill 0 when parameter less than 10.
  */
 (function ($) {
     $.plus0 = function (digit) {
@@ -18,13 +16,13 @@ var $ = Surgar = {};
 })(Surgar);
 
 /**
- * 基于PHP日期时间格式，格式化日期时间。
+ * Format datetime using PHP formatString.
  *
- * @param format 格式字符串
- * @param timestamp 时间戳
+ * @param formatString
+ * @param timestamp
  */
 (function ($) {
-    $.dateFormat = function (format, timestamp) {
+    $.dateFormat = function (formatString, timestamp) {
         var dateTime = null;
         if (typeof timestamp === 'undefined' || isNaN(timestamp)) {
             dateTime = new Date();
@@ -47,7 +45,7 @@ var $ = Surgar = {};
             "s": $.plus0(seconds)
         };
 
-        var formats = format.split("");
+        var formats = formatString.split("");
         for (var i = 0; i < formats.length; i++) {
             if (typeof dateBody[formats[i]] !== 'undefined') {
                 formats[i] = dateBody[formats[i]];
